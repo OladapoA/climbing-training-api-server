@@ -19,7 +19,7 @@ CREATE TABLE public.exercises
 CREATE TABLE public.sessions
 (
     id     SERIAL PRIMARY KEY,
-    total_time  time,
+    time  time,
     status  boolean,
     name varchar(30) NOT NULL,
     description text,

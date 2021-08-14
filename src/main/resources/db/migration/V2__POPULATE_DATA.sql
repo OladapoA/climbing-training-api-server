@@ -1,8 +1,7 @@
--- INSERT INTO training_seasons (id, start_date, status) VALUES (1, '2022-02-18', 'FALSE');
+-- TRAINING SESSIONS
 INSERT INTO training_seasons (start_date, status) VALUES ('2022-02-18', 'FALSE');
 
--- INSERT INTO day_sessions (date, type, training_season_id, status) VALUES ('2022-02-18', 'type 1', 1, 'FALSE');
--- INSERT INTO day_sessions (date, workout_type, status) VALUES ('2022-02-18', 'TRAINING_SESSION_ONE', 'FALSE');
+-- INSERT INTO DAY SESSIONS
 INSERT INTO day_sessions (date, workout_type, training_season_id, status) VALUES ('2022-02-18', 'TRAINING_SESSION_ONE', 1, 'FALSE');
 
 INSERT INTO exercises (type, subtype, name) VALUES ('test', 'test', 'test');
@@ -16,3 +15,7 @@ Reverse movement back into push up and then push back into downward dog.
 Step feet forward again, coming into a doubled over position. 
 Raise arms out and up as you straighten your back.  
 Return to starting position, and repeat. ');
+
+-- SESSIONS
+-- INSERT INTO exercises (time, status, name, description, template)
+INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 1', '3 hour training sessions with a focus on isolation', 'TRUE')

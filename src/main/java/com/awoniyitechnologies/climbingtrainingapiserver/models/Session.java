@@ -1,6 +1,6 @@
 package com.awoniyitechnologies.climbingtrainingapiserver.models;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public class Session {
     private Boolean status;
     private String description;
     private Boolean template;
-    private Timestamp time;
+    private Time time;
 
     @OneToMany
     @JoinColumn(name="session_id")
@@ -44,8 +44,8 @@ public class Session {
     public Boolean getTemplate() { return template; }
     public void setTemplate(Boolean template) { this.template = template; }
 
-    public Timestamp getTime() { return time; }
-    public void setTime(Timestamp time) { this.time = time; }
+    public Time getTime() { return time; }
+    public void setTime(Time time) { this.time = time; }
 
     public List<SessionExercise> getSessionExercises() { return sessionExercises; }
     public void setSessionExercises(List<SessionExercise> sessionExercises) { this.sessionExercises = sessionExercises; }
