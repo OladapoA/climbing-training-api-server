@@ -24,6 +24,7 @@ public class SessionExerciseResourceBuilder {
         resource.setRepUsed(sessionExercise.getRepUsed());
         resource.setTemplate(sessionExercise.getTemplate());
         resource.setExercise(sessionExercise.getExercise());
+        resource.setTime(sessionExercise.getTime());
 
         return resource;
     }

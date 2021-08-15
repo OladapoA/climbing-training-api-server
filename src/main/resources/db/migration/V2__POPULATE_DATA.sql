@@ -25,11 +25,11 @@ INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Res
 INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Outdoor/Gym', 'Just a basic outdoor or indoor session. Have fun!', 'TRUE');
 
 -- SESSION EXERCISES
--- INSERT INTO session_exercises (name, status, notes, weight_target, weight_used, rep_target, rep_used, exercise_id, session_id, template)
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Warm Up', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 1', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 2', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 3', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Climbing', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Core', 1, 'TRUE');
-INSERT INTO session_exercises (name, session_id, template) VALUES ('Cool Down', 1, 'TRUE');
+-- INSERT INTO session_exercises (name, time ,status, notes, weight_target, weight_used, rep_target, rep_used, exercise_id, session_id, template)
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Warm Up', '0:30:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Isolation 1', '0:30:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Isolation 2', '0:15:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Isolation 3', '0:15:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Climbing', '1:00:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Core', '0:20:00', 1, 'TRUE');
+INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Cool Down', '0:10:00', 1, 'TRUE');

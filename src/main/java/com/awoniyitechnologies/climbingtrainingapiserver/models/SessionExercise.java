@@ -1,5 +1,7 @@
 package com.awoniyitechnologies.climbingtrainingapiserver.models;
 
+import java.sql.Time;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +26,7 @@ public class SessionExercise {
     private Long repTarget;
     private Long repUsed;
     private Boolean template;
+    private Time time;
 
     @ManyToOne
     @JoinColumn(name="exercise_id")
@@ -65,4 +68,7 @@ public class SessionExercise {
 
     public Boolean getTemplate() { return template; }
     public void setTemplate(Boolean template) { this.template = template; }
+
+    public Time getTime() { return time; }
+    public void setTime(Time time) { this.time = time; }
 }

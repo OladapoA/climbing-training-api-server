@@ -38,7 +38,8 @@ CREATE TABLE public.session_exercises
     rep_used int,
     exercise_id   int REFERENCES exercises (id),
     session_id   int NOT NULL REFERENCES sessions (id),
-    template boolean
+    template boolean,
+    time time
 );
 
 CREATE TABLE public.training_session_ones

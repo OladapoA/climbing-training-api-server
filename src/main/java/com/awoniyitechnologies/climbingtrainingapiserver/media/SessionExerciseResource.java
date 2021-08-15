@@ -1,5 +1,7 @@
 package com.awoniyitechnologies.climbingtrainingapiserver.media;
 
+import java.sql.Time;
+
 import com.awoniyitechnologies.climbingtrainingapiserver.models.Exercise;
 
 public class SessionExerciseResource {
@@ -13,6 +15,7 @@ public class SessionExerciseResource {
     private Long repUsed;
     private Boolean template;
     private Exercise exercise;
+    private Time time;
 
     SessionExerciseResource() {}
 
@@ -45,4 +48,7 @@ public class SessionExerciseResource {
 
     public Boolean getTemplate() { return template; }
     public void setTemplate(Boolean template) { this.template = template; }
+
+    public Time getTime() { return time; }
+    public void setTime(Time time) { this.time = time; }
 }
