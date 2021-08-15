@@ -42,52 +42,6 @@ CREATE TABLE public.session_exercises
     time time
 );
 
-CREATE TABLE public.training_session_ones
-(
-    id     SERIAL PRIMARY KEY,
-    warm_up   int REFERENCES session_exercises (id),
-    isolation_one   int REFERENCES session_exercises (id),
-    isolation_two   int REFERENCES session_exercises (id),
-    isolation_three   int REFERENCES session_exercises (id),
-    climbing   int REFERENCES session_exercises (id),
-    core   int REFERENCES session_exercises (id),
-    cool_down   int REFERENCES session_exercises (id),
-    total_time  time,
-    status  boolean
-);
-
-CREATE TABLE public.training_session_twos
-(
-    id     SERIAL PRIMARY KEY,
-    warm_up   int REFERENCES session_exercises (id),
-    climbing_one   int REFERENCES session_exercises (id),
-    climbing_two   int REFERENCES session_exercises (id),
-    climbing_three   int REFERENCES session_exercises (id),
-    core   int REFERENCES session_exercises (id),
-    cool_down   int REFERENCES session_exercises (id),
-    total_time  time,
-    status  boolean
-);
-
-CREATE TABLE public.core_cardio_sessions
-(
-    id     SERIAL PRIMARY KEY,
-    warm_up   int REFERENCES session_exercises (id),
-    core_one   int REFERENCES session_exercises (id),
-    core_two   int REFERENCES session_exercises (id),
-    cardio_one   int REFERENCES session_exercises (id),
-    cardio_two   int REFERENCES session_exercises (id),
-    total_time  time,
-    status  boolean
-);
-
-CREATE TABLE public.gym_outdoor_sessions
-(
-    id     SERIAL PRIMARY KEY,
-    exercise   int REFERENCES session_exercises (id),
-    status  boolean
-);
-
 CREATE TABLE public.training_seasons
 (
     id     SERIAL PRIMARY KEY,
