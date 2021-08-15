@@ -2,6 +2,8 @@ package com.awoniyitechnologies.climbingtrainingapiserver.controllers;
 
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.media.SessionResource;
+import com.awoniyitechnologies.climbingtrainingapiserver.media.SessionResourceBuilder;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
 import com.awoniyitechnologies.climbingtrainingapiserver.services.SessionService;
 
@@ -16,21 +18,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class SessionController {
 
     private SessionService sessionService;
+    private SessionResourceBuilder sessionResourceBuilder;
 
     @Autowired
-    public SessionController(SessionService sessionService) {
+    public SessionController(SessionService sessionService, SessionResourceBuilder sessionResourceBuilder) {
         this.sessionService = sessionService;
+        this.sessionResourceBuilder = sessionResourceBuilder;
     }
 
     @GetMapping
-    public List<Session> getAllSessions() {
+    public List<SessionResource> getAllSessions() {
         List<Session> sessions = sessionService.getAllSessions();
-        return sessions;
+        return sessionResourceBuilder.toResource(sessions);
     }
 
     @GetMapping
     @RequestMapping("{id}")
-    public Session getExercise(@PathVariable Long id) {
-        return sessionService.getSession(id);
+    public SessionResource getExercise(@PathVariable Long id) {
+        Session session = sessionService.getSession(id);
+        return sessionResourceBuilder.toResource(session);
     }
 }

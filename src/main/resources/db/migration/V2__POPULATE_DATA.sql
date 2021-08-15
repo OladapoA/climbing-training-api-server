@@ -18,4 +18,12 @@ Return to starting position, and repeat. ');
 
 -- SESSIONS
 -- INSERT INTO exercises (time, status, name, description, template)
-INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 1', '3 hour training sessions with a focus on isolation', 'TRUE')
+INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 1', 'The focus of the first training session of the week is exercises that isolate certain climbing specific-muscles or movements.', 'TRUE');
+INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 2', 'The focus of the second training session of the week is on climbing and exercises that use the wall.', 'TRUE');
+INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Core and Cardio', 'This is a brief workout focusing on Cardio and Core exercises. The length should be 30-60 minutes, and you should avoid any exercises that use your arms or back muscles, paying special attention to letting the forearms rest.', 'TRUE');
+INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Rest', 'Rest', 'TRUE');
+INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Outdoor/Gym', 'Just a basic outdoor or indoor session. Have fun!', 'TRUE');
+
+-- SESSION EXERCISES
+-- INSERT INTO session_exercises (name, status, notes, weight_target, weight_used, rep_target, rep_used, exercise_id, session_id, template)
+INSERT INTO session_exercises (name, exercise_id, session_id, template) VALUES ('Warm Up', 2, 1, 'TRUE');

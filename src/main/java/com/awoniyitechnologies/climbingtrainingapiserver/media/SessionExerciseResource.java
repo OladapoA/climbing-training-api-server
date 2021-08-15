@@ -1,21 +1,9 @@
-package com.awoniyitechnologies.climbingtrainingapiserver.models;
+package com.awoniyitechnologies.climbingtrainingapiserver.media;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.awoniyitechnologies.climbingtrainingapiserver.models.Exercise;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@Entity(name = "session_exercises")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class SessionExercise {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SessionExerciseResource {
     private Long id;
-
     private String name;
     private Boolean status;
     private String notes;
@@ -24,14 +12,9 @@ public class SessionExercise {
     private Long repTarget;
     private Long repUsed;
     private Boolean template;
-
-    @ManyToOne
-    @JoinColumn(name="exercise_id")
     private Exercise exercise;
 
-    @ManyToOne
-    @JoinColumn(name="session_id")
-    private Session session;
+    SessionExerciseResource() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -47,9 +30,6 @@ public class SessionExercise {
 
     public Exercise getExercise() { return exercise;  }
     public void setExercise(Exercise exercise) { this.exercise = exercise; }
-
-    public Session getSession() { return session; }
-    public void setSession(Session session) { this.session = session; }
 
     public Long getWeightTarget() { return weightTarget; }
     public void setWeightTarget(Long weightTarget) { this.weightTarget = weightTarget; }
