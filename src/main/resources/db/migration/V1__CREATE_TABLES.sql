@@ -36,7 +36,7 @@ CREATE TABLE public.session_exercises
     weight_used int,
     rep_target int,
     rep_used int,
-    exercise_id   int NOT NULL REFERENCES exercises (id),
+    exercise_id   int REFERENCES exercises (id),
     session_id   int NOT NULL REFERENCES sessions (id),
     template boolean
 );

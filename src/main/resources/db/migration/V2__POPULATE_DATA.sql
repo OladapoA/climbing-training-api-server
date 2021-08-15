@@ -26,4 +26,10 @@ INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Out
 
 -- SESSION EXERCISES
 -- INSERT INTO session_exercises (name, status, notes, weight_target, weight_used, rep_target, rep_used, exercise_id, session_id, template)
-INSERT INTO session_exercises (name, exercise_id, session_id, template) VALUES ('Warm Up', 2, 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Warm Up', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 1', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 2', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Isolation 3', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Climbing', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Core', 1, 'TRUE');
+INSERT INTO session_exercises (name, session_id, template) VALUES ('Cool Down', 1, 'TRUE');
