@@ -1,12 +1,14 @@
 package com.awoniyitechnologies.climbingtrainingapiserver.models;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,9 +27,11 @@ public class DaySession {
     private String workoutType;
     private Boolean status;
 
-    @OneToOne
-    // @JoinColumn(name="training_season_id")
+    @ManyToOne
     private TrainingSeason trainingSeason;
+
+    @OneToMany
+    private List<Session> sessions;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -46,4 +50,7 @@ public class DaySession {
 
     public TrainingSeason getTrainingSeason() { return trainingSeason; }
     public void setTrainingSeason(TrainingSeason trainingSeason) { this.trainingSeason = trainingSeason; }
+    
+    public List<Session> getSessions() { return sessions; }
+    public void setSessions(List<Session> sessions) { this.sessions = sessions; }
 }

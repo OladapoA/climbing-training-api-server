@@ -2,6 +2,8 @@ package com.awoniyitechnologies.climbingtrainingapiserver.controllers;
 
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.media.DaySessionResource;
+import com.awoniyitechnologies.climbingtrainingapiserver.media.DaySessionResourceBuilder;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.DaySession;
 import com.awoniyitechnologies.climbingtrainingapiserver.services.DaySessionService;
 
@@ -14,15 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/day-sessions")
 public class DaySessionController {
     private DaySessionService daySessionService;
+    private DaySessionResourceBuilder daySessionResourceBuilder;
 
     @Autowired
-    public DaySessionController(DaySessionService daySessionService) {
-        this.daySessionService =daySessionService;
+    public DaySessionController(DaySessionService daySessionService, DaySessionResourceBuilder daySessionResourceBuilder) {
+        this.daySessionService = daySessionService;
+        this.daySessionResourceBuilder = daySessionResourceBuilder;
     }
 
     @GetMapping
-    public List<DaySession> getAllDaySessions() {
+    public List<DaySessionResource> getAllDaySessions() {
         List<DaySession> daySessions = daySessionService.getAllDaySessions();
-        return daySessions;
+        return daySessionResourceBuilder.toResource(daySessions);
     }
 }

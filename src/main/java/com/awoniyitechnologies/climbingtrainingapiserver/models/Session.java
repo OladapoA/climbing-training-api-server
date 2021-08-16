@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,6 +30,10 @@ public class Session {
     @JoinColumn(name="session_id")
     private List<SessionExercise> sessionExercises;
 
+    @ManyToOne
+    @JoinColumn(name="day_session_id")
+    private DaySession daySession;
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -49,4 +54,7 @@ public class Session {
 
     public List<SessionExercise> getSessionExercises() { return sessionExercises; }
     public void setSessionExercises(List<SessionExercise> sessionExercises) { this.sessionExercises = sessionExercises; }
+
+    public DaySession getDaySession() { return daySession; }
+    public void setDaySession(DaySession daySession) { this.daySession = daySession; }
 }

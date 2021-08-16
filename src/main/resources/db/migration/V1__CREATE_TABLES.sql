@@ -16,6 +16,23 @@ CREATE TABLE public.exercises
     description text
 );
 
+CREATE TABLE public.training_seasons
+(
+    id     SERIAL PRIMARY KEY,
+    start_date   date,
+    status   boolean
+);
+
+CREATE TABLE public.day_sessions
+-- CREATE TABLE IF NOT EXISTS migrations.users
+(
+    id     SERIAL PRIMARY KEY,
+    date   date,
+    workout_type varchar(30), -- need to change to enum
+    training_season_id  int REFERENCES training_seasons (id),
+    status   boolean
+);
+
 CREATE TABLE public.sessions
 (
     id     SERIAL PRIMARY KEY,
@@ -23,7 +40,9 @@ CREATE TABLE public.sessions
     status  boolean,
     name varchar(30) NOT NULL,
     description text,
-    template boolean
+    template boolean,
+    day_session_id int REFERENCES day_sessions (id)
+    -- link to day session
 );
 
 CREATE TABLE public.session_exercises
@@ -40,21 +59,4 @@ CREATE TABLE public.session_exercises
     session_id   int NOT NULL REFERENCES sessions (id),
     template boolean,
     time time
-);
-
-CREATE TABLE public.training_seasons
-(
-    id     SERIAL PRIMARY KEY,
-    start_date   date,
-    status   boolean
-);
-
-CREATE TABLE public.day_sessions
--- CREATE TABLE IF NOT EXISTS migrations.users
-(
-    id     SERIAL PRIMARY KEY,
-    date   date,
-    workout_type varchar(30), -- need to change to enum
-    training_season_id  int REFERENCES training_seasons (id),
-    status   boolean
 );
