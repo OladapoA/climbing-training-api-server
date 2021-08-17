@@ -6,7 +6,7 @@ public class TrainingSeasonResource {
     private Long id;
     private String startDate;
     private Boolean status;
-    private List<DaySessionResource> daySessions;
+    private List<List<String>> daySessions;
 
     public TrainingSeasonResource() {}
 
@@ -19,6 +19,6 @@ public class TrainingSeasonResource {
     public Boolean getStatus() { return status; }
     public void setStatus(Boolean status) { this.status = status; }
 
-    public List<DaySessionResource> getDaySessions() { return daySessions; }
-    public void setDaySession(List<DaySessionResource> daySessions) { this.daySessions = daySessions; }
+    public List<List<String>> getDaySessions() { return daySessions; }
+    public void setDaySessions(List<List<String>> daySessions) { this.daySessions = daySessions; }
 }

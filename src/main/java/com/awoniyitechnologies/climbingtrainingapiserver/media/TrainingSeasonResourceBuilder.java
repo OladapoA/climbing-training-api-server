@@ -3,6 +3,7 @@ package com.awoniyitechnologies.climbingtrainingapiserver.media;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.models.DaySession;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.TrainingSeason;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +27,20 @@ public class TrainingSeasonResourceBuilder {
         resource.setStartDate(trainingSeason.getStartDate().toString());
         resource.setStatus(trainingSeason.getStatus());
         
-        List<DaySessionResource> daySessionResources = daySessionResourceBuilder.toResource(trainingSeason.getDaySessions());
-        resource.setDaySession(daySessionResources);
+        List<List<String>> DaySessionsList = new ArrayList<>();
 
-        // List<MuscleGroupResource> muscleGroupResources = new ArrayList<MuscleGroupResource>();
-        // for (MuscleGroup muscleGroup : exercise.getMuscle_groups()){
-        //     muscleGroupResources.add(muscleGroupResourceBuilder.toResource(muscleGroup));
-        // }
-        // resource.setMuscle_groups(muscleGroupResources);
+        for (DaySession daySession : trainingSeason.getDaySessions()){
+            List<String> daySessionItems = new ArrayList<>();
+            daySessionItems.add(daySession.getId().toString());
+            daySessionItems.add(daySession.getDate().toString());
+            if (daySession.getStatus() != null) {
+                daySessionItems.add(daySession.getStatus().toString());
+            } else {
+                daySessionItems.add(null);
+            }        
+            DaySessionsList.add(daySessionItems);
+        }
+        resource.setDaySessions(DaySessionsList);
 
         return resource;
     }
