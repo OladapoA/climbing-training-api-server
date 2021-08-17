@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.awoniyitechnologies.climbingtrainingapiserver.models.DaySession;
+import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
 
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,22 @@ public class DaySessionResourceBuilder {
         resource.setId(daySession.getId());
         resource.setDate(daySession.getDate().toString());
         resource.setStatus(daySession.getStatus());
+
+        List<List<String>> sessionsList = new ArrayList<>();
+
+        for (Session session : daySession.getSessions()){
+            List<String> sessionList = new ArrayList<>();
+            sessionList.add(session.getId().toString());
+            sessionList.add(session.getName());
+            if (session.getStatus() != null) {
+                sessionList.add(session.getStatus().toString());
+            } else {
+                sessionList.add(null);
+            }        
+            sessionsList.add(sessionList);
+        }
+
+        resource.setSessions(sessionsList);
 
         return resource;
     }

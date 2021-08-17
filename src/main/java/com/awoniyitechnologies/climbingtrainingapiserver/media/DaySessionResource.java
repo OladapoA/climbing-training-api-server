@@ -1,10 +1,13 @@
 package com.awoniyitechnologies.climbingtrainingapiserver.media;
 
+import java.util.List;
+
 public class DaySessionResource {
     private Long id;
     private String date;
     private String workoutType;
     private Boolean status;
+    private List<List<String>> sessions;
 
     DaySessionResource() {}
 
@@ -19,4 +22,7 @@ public class DaySessionResource {
 
     public String getWorkoutType() { return workoutType; }
     public void setWorkoutType(String workoutType) { this.workoutType = workoutType; }
+
+    public List<List<String>> getSessions() { return sessions; }
+    public void setSessions(List<List<String>> sessions) { this.sessions = sessions;}
 }
