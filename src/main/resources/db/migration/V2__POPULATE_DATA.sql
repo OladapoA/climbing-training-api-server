@@ -1,10 +1,13 @@
--- TRAINING SESSIONS
+-- TRAINING SEASON
+-- INSERT INTO training_seasons (start_date, status)
 INSERT INTO training_seasons (start_date, status) VALUES ('2022-02-18', 'FALSE');
 
--- INSERT INTO DAY SESSIONS
-INSERT INTO day_sessions (date, workout_type, training_season_id, status) VALUES ('2022-02-18', 'TRAINING_SESSION_ONE', 1, 'FALSE');
+-- DAY SESSIONS
+-- INSERT INTO day_sessions (date, workout_type, training_season_id, status)
+INSERT INTO day_sessions (date, workout_type, training_season_id, status) VALUES ('2022-02-18', 'TRAINING_SESSION_ONE', 1, 'FALSE'); -- Delete workout type
 
-INSERT INTO exercises (type, subtype, name) VALUES ('test', 'test', 'test');
+-- EXERCISES
+-- INSERT INTO exercises (type, subtype, name, bookpage, beginner, intermediate, advanced, sets, reps, time, description)
 INSERT INTO exercises (type, subtype, name, bookpage, beginner, intermediate, advanced, sets, reps, time, description) VALUES ('Warm up / cool down', 'Full body', 'Simple Sun Salutations', 61, 'TRUE', 'TRUE', 'TRUE', 0, 0, 'T0:02:00', 'Begin standing straight with hands at side. 
 Raise arms out to side and above head, stretching back. 
 With a straight back, reach out and down, touching toes. 
@@ -35,3 +38,7 @@ INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Isolat
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Climbing', '1:00:00', 1, 'TRUE');
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Core', '0:20:00', 1, 'TRUE');
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Cool Down', '0:10:00', 1, 'TRUE');
+
+-- Dev data
+INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Test session', 'Just a test session', 'FALSE');
+INSERT INTO session_exercises (name, time ,status, notes, exercise_id, session_id, template) VALUES ('Warm Up', '0:30:00', 'FALSE', 'Felt a little sore', 1, 7, 'FALSE');
