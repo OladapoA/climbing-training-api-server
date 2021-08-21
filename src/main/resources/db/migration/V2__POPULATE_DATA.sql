@@ -24,8 +24,9 @@ Return to starting position, and repeat. ');
 INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 1', 'The focus of the first training session of the week is exercises that isolate certain climbing specific-muscles or movements.', 'TRUE');
 INSERT INTO sessions (time, name, description, template) VALUES ('3:00:00', 'Training Session 2', 'The focus of the second training session of the week is on climbing and exercises that use the wall.', 'TRUE');
 INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Core and Cardio', 'This is a brief workout focusing on Cardio and Core exercises. The length should be 30-60 minutes, and you should avoid any exercises that use your arms or back muscles, paying special attention to letting the forearms rest.', 'TRUE');
-INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Rest', 'Rest', 'TRUE');
-INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Outdoor/Gym', 'Just a basic outdoor or indoor session. Have fun!', 'TRUE');
+INSERT INTO sessions (name, description, template) VALUES ('Rest', 'Rest', 'TRUE');
+INSERT INTO sessions (name, description, template) VALUES ('Outdoor/Gym', 'Just a basic outdoor or indoor session. Have fun!', 'TRUE');
+INSERT INTO sessions (name, description, template) VALUES ('Outdoor/Gym or Fitness and Strength Session', 'This alternative to an Outdoor/Gym session is useful if you really wrecked yourself on Saturday and want to make sure your forearms are recovered for Training Session 1 or if your local outdoor spot annihilated your tips and you just can’t climb another day. It can also be useful time-wise, as it usually does not last as long as a normal climbing session. The focus should be on body-weight calisthenics rotations of HIIT-style lifting sessions utilizing low weights and high repetitions.', 'TRUE');
 
 INSERT INTO sessions (time, name, description, template, day_session_id) VALUES ('1:00:00', 'Outdoor/Gym', 'Just a basic outdoor or indoor session. Have fun!', 'FALSE', 1);
 
@@ -38,6 +39,11 @@ INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Isolat
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Climbing', '1:00:00', 1, 'TRUE');
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Core', '0:20:00', 1, 'TRUE');
 INSERT INTO session_exercises (name, time, session_id, template) VALUES ('Cool Down', '0:10:00', 1, 'TRUE');
+
+-- WEEK SESSIONS TEMPLATE
+-- INSERT INTO week_sessions_template (name, description, monday_session_id, tuesday_session_id, wednesday_session_id, thursday_session_id , friday_session_id, saturday_session_id, sunday_session_id) 
+INSERT INTO week_sessions_template (name, description, monday_session_id, tuesday_session_id, wednesday_session_id, thursday_session_id , friday_session_id, saturday_session_id, sunday_session_id) values ('Standard Week', 'weekly schedule following climbing 102', 3, 1, 3, 2, 4, 5, 6);
+INSERT INTO week_sessions_template (name, description, monday_session_id, tuesday_session_id, wednesday_session_id, thursday_session_id , friday_session_id, saturday_session_id, sunday_session_id) values ('Alternate Week', 'One day shifted schedule of climbing 102 schedule', 1, 3, 2, 4, 5, 6, 3);
 
 -- Dev data
 INSERT INTO sessions (time, name, description, template) VALUES ('1:00:00', 'Test session', 'Just a test session', 'FALSE');

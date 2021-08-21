@@ -5,7 +5,7 @@ CREATE TABLE public.exercises
     id     SERIAL PRIMARY KEY,
     type  varchar(30) NOT NULL,
     subtype   varchar(30) NOT NULL,
-    name    varchar(30) NOT NULL,
+    name    varchar(60) NOT NULL,
     bookpage    int,
     beginner   boolean,
     intermediate boolean,
@@ -38,7 +38,7 @@ CREATE TABLE public.sessions
     id     SERIAL PRIMARY KEY,
     time  time,
     status  boolean,
-    name varchar(30) NOT NULL,
+    name varchar(60) NOT NULL,
     description text,
     template boolean,
     day_session_id int REFERENCES day_sessions (id)
@@ -59,4 +59,18 @@ CREATE TABLE public.session_exercises
     session_id   int NOT NULL REFERENCES sessions (id),
     template boolean,
     time time
+);
+
+CREATE TABLE public.week_sessions_template
+(
+    id     SERIAL PRIMARY KEY,
+    name varchar(30) NOT NULL,
+    description text,
+    monday_session_id   int REFERENCES sessions (id),
+    tuesday_session_id   int REFERENCES sessions (id),
+    wednesday_session_id   int REFERENCES sessions (id),
+    thursday_session_id   int REFERENCES sessions (id),
+    friday_session_id   int REFERENCES sessions (id),
+    saturday_session_id   int REFERENCES sessions (id),
+    sunday_session_id   int REFERENCES sessions (id)
 );
