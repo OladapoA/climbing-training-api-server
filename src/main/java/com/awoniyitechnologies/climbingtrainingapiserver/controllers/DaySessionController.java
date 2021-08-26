@@ -9,6 +9,7 @@ import com.awoniyitechnologies.climbingtrainingapiserver.services.DaySessionServ
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,12 @@ public class DaySessionController {
     public List<DaySessionResource> getAllDaySessions() {
         List<DaySession> daySessions = daySessionService.getAllDaySessions();
         return daySessionResourceBuilder.toResource(daySessions);
+    }
+
+    @GetMapping
+    @RequestMapping("{id}")
+    public DaySessionResource getDaySession(@PathVariable Long id) {
+        DaySession daySession = daySessionService.getDaySession(id);
+        return daySessionResourceBuilder.toResource(daySession);
     }
 }

@@ -30,6 +30,10 @@ public class DaySessionService {
         return daySessionRepository.findAll();
     }
 
+    public DaySession getDaySession(Long id) {
+        return daySessionRepository.getById(id);
+    }
+
     public void createSeasonDaySessions(List<Session> weekSessionsTemplateList, TrainingSeason trainingSeason,
             List<Session> restWeekSessionsTemplateList) {
         List<List<DaySession>> daySessionWeeks = new ArrayList<>();
