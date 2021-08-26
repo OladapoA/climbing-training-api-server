@@ -48,7 +48,7 @@ CREATE TABLE public.sessions
 CREATE TABLE public.session_exercises
 (
     id     SERIAL PRIMARY KEY,
-    name varchar(30) NOT NULL,
+    name varchar(60) NOT NULL,
     status  boolean,
     notes text,
     weight_target int,
@@ -64,7 +64,7 @@ CREATE TABLE public.session_exercises
 CREATE TABLE public.week_sessions_template
 (
     id     SERIAL PRIMARY KEY,
-    name varchar(30) NOT NULL,
+    name varchar(30) NOT NULL UNIQUE,
     description text,
     monday_session_id   int REFERENCES sessions (id),
     tuesday_session_id   int REFERENCES sessions (id),

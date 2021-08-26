@@ -2,6 +2,7 @@ package com.awoniyitechnologies.climbingtrainingapiserver.services;
 
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.TrainingSeason;
 import com.awoniyitechnologies.climbingtrainingapiserver.repositories.TrainingSeasonRepository;
 
@@ -27,8 +28,13 @@ public class TrainingSeasonService {
         return trainingSeasonRepository.findAll();
     }
 
-    public TrainingSeason createTrainingSeason(TrainingSeason trainingSeason) {
+    public TrainingSeason createTrainingSeason(List<Session> weekSessionsTemplateList, TrainingSeason trainingSeason,
+            List<Session> restWeekSessionsTemplateList) {
         // create 84 day sessions
-        return trainingSeasonRepository.saveAndFlush(trainingSeason);
+        // TODO: verify that start date is a monday
+        TrainingSeason createdTrainingSeason = trainingSeasonRepository.saveAndFlush(trainingSeason);
+        daySessionService.createSeasonDaySessions(weekSessionsTemplateList, createdTrainingSeason, restWeekSessionsTemplateList);
+        // TODO: return createdTrainingSeason after other components are created so it isn't empty?
+        return createdTrainingSeason;
     }
 }

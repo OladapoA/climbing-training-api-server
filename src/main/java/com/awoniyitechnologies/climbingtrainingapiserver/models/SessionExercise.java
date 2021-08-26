@@ -36,6 +36,8 @@ public class SessionExercise {
     @JoinColumn(name="session_id")
     private Session session;
 
+    public SessionExercise() {}
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

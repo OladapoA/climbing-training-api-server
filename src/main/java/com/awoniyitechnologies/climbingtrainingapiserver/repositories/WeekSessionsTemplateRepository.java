@@ -5,5 +5,5 @@ import com.awoniyitechnologies.climbingtrainingapiserver.models.WeekSessionsTemp
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WeekSessionsTemplateRepository extends JpaRepository<WeekSessionsTemplate, Long> {
-    
+    WeekSessionsTemplate findByName(String name);
 }

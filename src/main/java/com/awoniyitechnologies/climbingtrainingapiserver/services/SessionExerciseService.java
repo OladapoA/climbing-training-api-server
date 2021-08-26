@@ -2,6 +2,7 @@ package com.awoniyitechnologies.climbingtrainingapiserver.services;
 
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.SessionExercise;
 import com.awoniyitechnologies.climbingtrainingapiserver.repositories.SessionExerciseRepository;
 
@@ -25,5 +26,16 @@ public class SessionExerciseService {
 
     public SessionExercise getSessionExercise(Long id) {
         return sessionExerciseRepository.getById(id);
+    }
+
+    public void copyTemplateToSession(Session session, List<SessionExercise> templateSessionExercises) {
+        for (SessionExercise sessionExercise : templateSessionExercises) {
+            SessionExercise newSessionExercise = new SessionExercise();
+            newSessionExercise.setSession(session);
+            newSessionExercise.setName(sessionExercise.getName());
+            newSessionExercise.setTime(sessionExercise.getTime());
+            newSessionExercise.setTemplate(false);
+            sessionExerciseRepository.saveAndFlush(newSessionExercise);
+        }
     }
 }

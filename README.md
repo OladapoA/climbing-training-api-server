@@ -62,3 +62,6 @@ docker exec -it postgres-main psql -U postgres
 
 CREATE DATABASE climbing_training;
 
+Next steps
+- change the order of the season to being returned so all asociated day sessions come through
+- clean up

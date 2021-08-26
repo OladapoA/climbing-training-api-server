@@ -34,6 +34,8 @@ public class Session {
     @JoinColumn(name="day_session_id")
     private DaySession daySession;
 
+    public Session() {}
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
