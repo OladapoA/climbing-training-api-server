@@ -43,6 +43,13 @@ public class TrainingSeasonController {
         return trainingSeasonResourceBuilder.toResource(trainingSeasons);
     }
 
+    @GetMapping
+    @RequestMapping("{id}")
+    public TrainingSeasonResource getExercise(@PathVariable Long id) {
+        TrainingSeason trainingSeasons = trainingSeasonService.getTrainingSeason(id);
+        return trainingSeasonResourceBuilder.toResource(trainingSeasons);
+    }
+
     @PostMapping
     @RequestMapping("templateId/{templateId}")
     @ResponseStatus(HttpStatus.CREATED)

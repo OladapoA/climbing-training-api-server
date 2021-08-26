@@ -28,6 +28,10 @@ public class TrainingSeasonService {
         return trainingSeasonRepository.findAll();
     }
 
+    public TrainingSeason getTrainingSeason(Long id) {
+        return trainingSeasonRepository.getById(id);
+    }
+
     public TrainingSeason createTrainingSeason(List<Session> weekSessionsTemplateList, TrainingSeason trainingSeason,
             List<Session> restWeekSessionsTemplateList) {
         // create 84 day sessions
