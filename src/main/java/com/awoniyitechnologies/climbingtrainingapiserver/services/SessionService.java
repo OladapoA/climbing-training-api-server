@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.awoniyitechnologies.climbingtrainingapiserver.models.DaySession;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
+import com.awoniyitechnologies.climbingtrainingapiserver.models.SessionExercise;
 import com.awoniyitechnologies.climbingtrainingapiserver.repositories.SessionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,18 @@ public class SessionService {
                 createWeekSessions(weekSessionsTemplateList, SeasonDaySessions.get(i));
             }
         }
+    }
+
+    public void updateSessionStatus(Session session) {
+        List<SessionExercise> sessionExercises = session.getSessionExercises();
+        Boolean status = true;
+        for (SessionExercise sessionExercise : sessionExercises) {
+            if (sessionExercise.getStatus().equals(false)){
+                status = false;
+                break;
+            }
+        }
+        session.setStatus(status);
+        sessionRepository.saveAndFlush(session);
     }
 }

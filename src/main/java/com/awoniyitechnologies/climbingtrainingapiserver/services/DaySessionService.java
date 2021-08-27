@@ -51,4 +51,17 @@ public class DaySessionService {
         }
         sessionService.createSeasonSessions(weekSessionsTemplateList, daySessionWeeks, restWeekSessionsTemplateList);
     }
+
+    public void updateDaySessionStatus(DaySession daySession) {
+        List<Session> sessions = daySession.getSessions();
+        Boolean status = true;
+        for (Session session : sessions) {
+            if (session.getStatus().equals(false)){
+                status = false;
+                break;
+            }
+        }
+        daySession.setStatus(status);
+        daySessionRepository.saveAndFlush(daySession);
+    }
 }

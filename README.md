@@ -54,8 +54,6 @@ docker exec -it postgres-main psql -d exercise_dev -f insert_data.sql -U postgre
 
 
 
-
-
 docker rm postgres-main
 docker run --name postgres-main -e POSTGRES_PASSWORD=test -p 5432:5432 -d postgres
 docker exec -it postgres-main psql -U postgres
@@ -65,3 +63,5 @@ CREATE DATABASE climbing_training;
 Next steps
 - change the order of the season to being returned so all asociated day sessions come through
 - clean up
+- Session exercise copy is not in order judging by ids
+- Maybe change the status updates so only existing parents are checked

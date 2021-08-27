@@ -42,7 +42,6 @@ CREATE TABLE public.sessions
     description text,
     template boolean,
     day_session_id int REFERENCES day_sessions (id)
-    -- link to day session
 );
 
 CREATE TABLE public.session_exercises

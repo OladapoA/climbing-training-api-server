@@ -28,6 +28,18 @@ public class SessionExerciseService {
         return sessionExerciseRepository.getById(id);
     }
 
+    public SessionExercise setSessionExerciseStatus(Long id, String status) {
+        SessionExercise sessionExercise = getSessionExercise(id);
+        if (status.equalsIgnoreCase("start")) {
+            sessionExercise.setStatus(false);
+            return sessionExerciseRepository.saveAndFlush(sessionExercise);
+        } else if (status.equalsIgnoreCase("finish")) {
+            sessionExercise.setStatus(true);
+            return sessionExerciseRepository.saveAndFlush(sessionExercise);
+        }
+        return sessionExercise;
+    }
+
     public void copyTemplateToSession(Session session, List<SessionExercise> templateSessionExercises) {
         for (SessionExercise sessionExercise : templateSessionExercises) {
             SessionExercise newSessionExercise = new SessionExercise();
