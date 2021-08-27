@@ -64,4 +64,3 @@ Next steps
 - change the order of the season to being returned so all asociated day sessions come through
 - clean up
 - Session exercise copy is not in order judging by ids
-- Maybe change the status updates so only existing parents are checked

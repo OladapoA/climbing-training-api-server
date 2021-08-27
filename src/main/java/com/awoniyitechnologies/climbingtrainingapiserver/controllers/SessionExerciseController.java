@@ -12,6 +12,7 @@ import com.awoniyitechnologies.climbingtrainingapiserver.services.SessionService
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +49,18 @@ public class SessionExerciseController {
         SessionExercise sessionExercise = sessionExerciseService.getSessionExercise(id);
         return sessionExerciseResourceBuilder.toResource(sessionExercise);
     }
+
+    @RequestMapping(path = "{id}", method = RequestMethod.PUT)
+    public SessionExerciseResource updateSessionExercise(@PathVariable Long id, @RequestBody SessionExercise sessionExercise) {
+        SessionExercise updatedSessionExercise = sessionExerciseService.updateSessionExercise(id, sessionExercise);
+        return sessionExerciseResourceBuilder.toResource(updatedSessionExercise);
+    }
+
+    @RequestMapping(path = "{id}/exercise/{exerciseId}", method = RequestMethod.PUT)
+    public SessionExerciseResource selectExercise(@PathVariable Long id, @PathVariable Long exerciseId) {
+        SessionExercise updatedSessionExercise = sessionExerciseService.setExercise(id, exerciseId);
+        return sessionExerciseResourceBuilder.toResource(updatedSessionExercise);
+    } 
 
     @RequestMapping(path = "{id}/status", method = RequestMethod.PUT)
     public SessionExerciseResource setSessionExerciseStatus(@PathVariable Long id, @RequestParam String status) {

@@ -2,6 +2,7 @@ package com.awoniyitechnologies.climbingtrainingapiserver.services;
 
 import java.util.List;
 
+import com.awoniyitechnologies.climbingtrainingapiserver.models.Exercise;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.Session;
 import com.awoniyitechnologies.climbingtrainingapiserver.models.SessionExercise;
 import com.awoniyitechnologies.climbingtrainingapiserver.repositories.SessionExerciseRepository;
@@ -14,10 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class SessionExerciseService {
     private SessionExerciseRepository sessionExerciseRepository;
+    private ExerciseService exerciseService;
 
     @Autowired
-    public SessionExerciseService (SessionExerciseRepository sessionExerciseRepository) {
+    public SessionExerciseService (SessionExerciseRepository sessionExerciseRepository, ExerciseService exerciseService) {
         this.sessionExerciseRepository = sessionExerciseRepository;
+        this.exerciseService = exerciseService;
     }
 
     public List<SessionExercise> getAllSessionExercises() {
@@ -40,6 +43,16 @@ public class SessionExerciseService {
         return sessionExercise;
     }
 
+    public SessionExercise updateSessionExercise(Long id, SessionExercise sessionExercise) {
+        SessionExercise updatedSessionExercise = getSessionExercise(id);
+        updatedSessionExercise.setNotes(sessionExercise.getNotes());
+        updatedSessionExercise.setRepTarget(sessionExercise.getRepTarget());
+        updatedSessionExercise.setRepUsed(sessionExercise.getRepUsed());
+        updatedSessionExercise.setWeightTarget(sessionExercise.getWeightTarget());
+        updatedSessionExercise.setWeightUsed(sessionExercise.getWeightUsed());
+        return sessionExerciseRepository.saveAndFlush(updatedSessionExercise);
+    }
+
     public void copyTemplateToSession(Session session, List<SessionExercise> templateSessionExercises) {
         for (SessionExercise sessionExercise : templateSessionExercises) {
             SessionExercise newSessionExercise = new SessionExercise();
@@ -50,4 +63,12 @@ public class SessionExerciseService {
             sessionExerciseRepository.saveAndFlush(newSessionExercise);
         }
     }
+
+    public SessionExercise setExercise(Long id, Long exerciseId) {
+        SessionExercise sessionExercise = getSessionExercise(id);
+        Exercise exercise = exerciseService.getExercise(exerciseId);
+
+        sessionExercise.setExercise(exercise);
+        return sessionExerciseRepository.saveAndFlush(sessionExercise);
+    } 
 }
