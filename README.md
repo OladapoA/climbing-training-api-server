@@ -52,7 +52,7 @@ docker cp insert_data.sql postgres-main:/insert_data.sql
 docker exec -it postgres-main psql -d exercise_dev -f insert_data.sql -U postgres
 ```
 
-
+<!-- CMD -->
 
 docker rm postgres-main
 docker run --name postgres-main -e POSTGRES_PASSWORD=test -p 5432:5432 -d postgres
@@ -60,7 +60,22 @@ docker exec -it postgres-main psql -U postgres
 
 CREATE DATABASE climbing_training;
 
+<!-- CMD -->
+
 Next steps
 - change the order of the season to being returned so all asociated day sessions come through
 - clean up
 - Session exercise copy is not in order judging by ids
+- Order all returned data by date or ID
+- Make template session non editable?
+
+User needs
+- Create a training season given a start date from a template
+- Get training season
+- Get day session
+- Get session
+- Get session exercise
+- Update status of session exercise and waterfall upstream
+- Update session exercise (targets, actuals, notes)
+- Select exercise for session exercise
+- Get all exercises
