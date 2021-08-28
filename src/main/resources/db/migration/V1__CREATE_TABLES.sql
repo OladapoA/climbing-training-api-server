@@ -24,11 +24,9 @@ CREATE TABLE public.training_seasons
 );
 
 CREATE TABLE public.day_sessions
--- CREATE TABLE IF NOT EXISTS migrations.users
 (
     id     SERIAL PRIMARY KEY,
     date   date,
-    workout_type varchar(30), -- need to change to enum
     training_season_id  int REFERENCES training_seasons (id),
     status   boolean
 );

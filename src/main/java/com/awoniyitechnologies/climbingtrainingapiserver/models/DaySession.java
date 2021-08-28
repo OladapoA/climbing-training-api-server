@@ -16,16 +16,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity(name = "day_sessions")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class DaySession {
-    enum WorkoutType {TRAINING_SESSION_ONE, TRAINING_SESSION_TWO, CORE_CARDIO,
-    GYM_OUTDOOR}
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private Timestamp date;
-    // private String workout;
-    private String workoutType;
     private Boolean status;
 
     @ManyToOne
@@ -43,12 +38,6 @@ public class DaySession {
 
     public Boolean getStatus() { return status; }
     public void setStatus(Boolean status) { this.status = status; }
-
-    // public WorkoutType getWorkout() { return WorkoutType.valueOf(workout); }
-    // public void setWorkout(WorkoutType workout) { this.workout = workout.name(); }
-
-    public String getWorkoutType() { return workoutType; }
-    public void setWorkoutType(String workoutType) { this.workoutType = workoutType; }
 
     public TrainingSeason getTrainingSeason() { return trainingSeason; }
     public void setTrainingSeason(TrainingSeason trainingSeason) { this.trainingSeason = trainingSeason; }

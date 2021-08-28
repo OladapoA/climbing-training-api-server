@@ -3,8 +3,8 @@
 INSERT INTO training_seasons (start_date, status) VALUES ('2022-02-18', 'FALSE');
 
 -- DAY SESSIONS
--- INSERT INTO day_sessions (date, workout_type, training_season_id, status)
-INSERT INTO day_sessions (date, workout_type, training_season_id, status) VALUES ('2022-02-18', 'TRAINING_SESSION_ONE', 1, 'FALSE'); -- Delete workout type
+-- INSERT INTO day_sessions (date, training_season_id, status)
+INSERT INTO day_sessions (date, training_season_id, status) VALUES ('2022-02-18', 1, 'FALSE'); -- Delete workout type
 
 -- EXERCISES
 -- INSERT INTO exercises (type, subtype, name, bookpage, beginner, intermediate, advanced, sets, reps, time, description)
