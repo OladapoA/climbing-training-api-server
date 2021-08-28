@@ -65,8 +65,6 @@ CREATE DATABASE climbing_training;
 Next steps
 - change the order of the season to being returned so all asociated day sessions come through
 - clean up
-- Session exercise copy is not in order judging by ids
-- Order all returned data by date or ID
 - Make template session non editable?
 
 User needs

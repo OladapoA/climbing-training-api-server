@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -28,6 +29,7 @@ public class Session {
 
     @OneToMany
     @JoinColumn(name="session_id")
+    @OrderBy(value = "id ASC")
     private List<SessionExercise> sessionExercises;
 
     @ManyToOne

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,6 +25,7 @@ public class TrainingSeason {
 
     @OneToMany
     @JoinColumn(name="training_season_id")
+    @OrderBy(value = "date ASC")
     private List<DaySession> daySessions;
 
     public Long getId() { return id; }
