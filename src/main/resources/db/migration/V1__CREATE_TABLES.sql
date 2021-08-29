@@ -12,8 +12,11 @@ CREATE TABLE public.exercises
     advanced    boolean,
     sets int,
     reps int,
+    reps_sets_info text,
     time time,
-    description text
+    description text,
+    progression text,
+    purpose text
 );
 
 CREATE TABLE public.training_seasons

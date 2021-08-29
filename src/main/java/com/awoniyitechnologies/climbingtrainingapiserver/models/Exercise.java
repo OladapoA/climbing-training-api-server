@@ -25,8 +25,11 @@ public class Exercise {
     private Boolean advanced;
     private Long sets;
     private Long reps;
+    private String repsSetsInfo;
     private Time time;
     private String description;
+    private String progression;
+    private String purpose;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -58,9 +61,18 @@ public class Exercise {
     public Long getReps() { return reps; }
     public void setReps(Long reps) { this.reps = reps; }
 
+    public String getRepsSetsInfo() { return repsSetsInfo; }
+    public void setRepsSetsInfo(String repsSetsInfo) { this.repsSetsInfo = repsSetsInfo; } 
+
     public Time getTime() { return time; }
     public void setTime(Time time) { this.time = time; }
 
     public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }    
+    public void setDescription(String description) { this.description = description; }
+
+    public String getProgression() { return progression; }
+    public void setProgression(String progression) { this.progression = progression; }
+
+    public String getPurpose() { return purpose; }
+    public void setPurpose(String purpose) { this.purpose = purpose; }
 }
