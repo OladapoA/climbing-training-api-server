@@ -68,7 +68,7 @@ public class SessionService {
         List<SessionExercise> sessionExercises = session.getSessionExercises();
         Boolean status = true;
         for (SessionExercise sessionExercise : sessionExercises) {
-            if (sessionExercise.getStatus() != null && sessionExercise.getStatus().equals(false)){
+            if (sessionExercise.getStatus() == null || (sessionExercise.getStatus() != null && sessionExercise.getStatus().equals(false))){
                 status = false;
                 break;
             }

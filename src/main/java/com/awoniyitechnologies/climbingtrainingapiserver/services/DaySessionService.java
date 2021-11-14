@@ -56,7 +56,7 @@ public class DaySessionService {
         List<Session> sessions = daySession.getSessions();
         Boolean status = true;
         for (Session session : sessions) {
-            if (session.getStatus().equals(false)){
+            if (session.getStatus() == null || session.getStatus().equals(false)){
                 status = false;
                 break;
             }
